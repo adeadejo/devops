@@ -1,48 +1,46 @@
 # Simple Flask App
 
-A Python Flask application that says "Hello, World!"
+A Python Flask application that says "Hello, World!" and provides a sample data endpoint.
 
-## Goal
+## Prerequisites
 
-* "Dockerize" the application, providing an image and a configuration for
-  running locally with Docker Compose.
-* Provide a script to retrieve data from application and perform basic parsing.
-* Provide a reverse proxy configuration.
+- Docker
+- Docker Compose
 
-## Docker Exercise
+## Setup and Running
 
-* Provide a `Dockerfile` to build and run the application.
-* Modify the application to replace _Hello, World!_ with an optional string set
-  using an environment variable and defaulting to _Hello, World!_
-* Provide a `docker-compose.yml` file to run the application and set a custom
-  string using an environment variable.
+1. **Clone the repository:**
+2. **Navigate to the project directory:**
+3. **Build and run the application with Docker Compose:**
+4. **Access the application:**
+- Greeting: <http://localhost:5000/>
+- Sample data: <http://localhost:5000/data>
 
-This should result in the ability to navigate to <http://localhost:5000/> and see
-the custom greeting.
+## Using the Data Parsing Script
 
-## Scripting Exercise
+To parse data from the application and create files:
 
-Provide a script or code in a language or tool of your choice that will parse
-the data returned from <http://localhost:5000/data> and create a file in a
-`files/` sub-directory named `<id>.txt` with the _name_ as the contents of the
-file.
-E.g. `files/3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3.txt`
+1. **Run the script:**
+2. **Check the `files/` sub-directory for the created files.**
 
-Note: The SHA256 sum of each file's contents (`<name>`) should match the `<id>`.
+## Testing
 
-## Reverse Proxy Configuration
+- Navigate to <http://localhost:5000/> to see the custom greeting.
+- Navigate to <http://localhost:5000/data> to see the sample data returned by the application.
+- Check the `files/` sub-directory to verify that files are created correctly with matching SHA256 sums.
 
-Provide a minimal reverse proxy configuration for the application. This can be anything -
-an Nginx, Apache, or Traefik config, a Terraform, CloudFormation, or CDK
-configuration for AWS Load Balancing, etc.
+## Troubleshooting
 
-It does not have to be implemented and functional in this exercise.
+- If you encounter any issues with Docker, ensure that Docker is running and try restarting it.
+- If you encounter permission issues, try running the commands with `sudo` or as an administrator.
 
-Idea: Try the [nginx](https://hub.docker.com/_/nginx) or
-[traefik](https://hub.docker.com/_/traefik) Docker image ran from the same
-Docker Compose file as the application.
+## Repository Structure
 
-## Submittal
+- `app.py`: Flask application.
+- `apptest.py`: Script to parse data from the Flask app.
+- `Dockerfile`: Dockerfile for the Flask app.
+- `docker-compose.yml`: Docker Compose file to run the Flask app and Nginx.
+- `nginx.conf`: Nginx configuration for reverse proxy.
+- `requirements.txt`: Python dependencies for the Flask app.
+- `README.md`: Documentation for the project.
 
-Push your solution to your own repository on GitHub, GitLab, another public
-repository, or provide an archive file (.zip) to the team.
