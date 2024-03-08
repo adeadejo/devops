@@ -33,5 +33,11 @@ def parse_and_create_files():
         else:
             print(f"Error: SHA256 sum of file '{file_path}' does not match the file id.")
 
+    # Print the absolute path of the 'files/' directory
+
+    files_dir = os.path.abspath('files')    
+
+    print(f"Files directory path: {files_dir}")
+
 if __name__ == "__main__":
     parse_and_create_files()
